@@ -1,0 +1,312 @@
+:root {
+    --cream: #F8F4F0;
+    --rose: #f96c98;
+    --beige: #f1c290;
+    --gold: #C7A27A;
+    --text: #2E2E2E;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+/* GIFT SCREEN */
+#gift-screen {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, var(--rose), var(--cream));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    text-align: center;
+}
+
+.gift-box {
+    width: 200px;
+    height: 200px;
+    background: #eb8a8a;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* CUTE CSS BOW */
+.gift-lid {
+    position: absolute;
+    top: -65px;               /* adjust height above box */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 10;              /* BOW ABOVE EVERYTHING */
+}
+
+/* Left loop */
+.gift-lid::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #E8C9A8;      /* bow colour */
+    border-radius: 50% 50% 0 50%;
+    left: 0;
+    top: 30px;
+    transform: rotate(-25deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+/* Right loop */
+.gift-lid::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #E8C9A8;
+    border-radius: 50% 50% 50% 0;
+    right: 0;
+    top: 30px;
+    transform: rotate(25deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+/* Bow knot */
+.gift-knot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #C7A27A;      /* knot colour */
+    border-radius: 50%;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 11;              /* KNOT ABOVE LOOPS */
+}
+
+
+.gift-ribbon-vertical {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: var(--beige);
+    transform: translateX(-50%);
+}
+
+.gift-ribbon-horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: var(--beige);
+    transform: translateY(-50%);
+}
+
+/* MAIN CONTENT */
+#main-content {
+    display: none;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--rose), var(--cream));
+    border-bottom: 4px solid var(--gold);
+    position: relative;
+}
+
+/* FLOATING STICKERS */
+.floating-sticker {
+    position: absolute;
+    width: 70px;
+    opacity: 0.9;
+    animation: floatSticker 6s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.floating-sticker.s1 { top: 10%; left: 5%; }
+.floating-sticker.s2 { top: 15%; right: 8%; }
+.floating-sticker.s3 { bottom: 12%; left: 10%; }
+.floating-sticker.s4 { bottom: 18%; right: 12%; }
+.floating-sticker.s5 { top: 40%; left: 20%; }
+.floating-sticker.s6 { top: 50%; right: 18%; }
+
+@keyframes floatSticker {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* PINTEREST GRID */
+.masonry {
+    column-count: 3;
+    column-gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #ec8282;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.card-tag {
+    position: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* MOODBOARD */
+.moodboard {
+    padding: 40px;
+    background: var(--beige);
+    text-align: center;
+}
+
+.mood-grid img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+/* Moodboard videos */
+/* Moodboard videos */
+.mood-video {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Wrapper for video 2 */
+.video-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Play button */
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 32px;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.play-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+
+/* REASONS */
+.reasons {
+    padding: 40px;
+    background: var(--gold);
+    color: white;
+    text-align: center;
+}
+
+.reason-card {
+    background: white;
+    color: var(--text);
+    padding: 18px;
+    margin: 12px auto;
+    max-width: 600px;
+    border-radius: 12px;
+}
+
+/* TIMELINE */
+.timeline {
+    padding: 40px;
+}
+
+.timeline-line {
+    max-width: 700px;
+    margin: auto;
+    padding-left: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 24px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+/* SECRET MESSAGE */
+#secret-trigger {
+    text-align: center;
+    padding: 40px;
+}
+
+#secret-button {
+    background: var(--rose);
+    padding: 12px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+#secret-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#secret-box {
+    background: var(--cream);
+    padding: 30px;
+    border-radius: 18px;
+    max-width: 700px;
+    width: 90%;
+}
+
+.secret-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    cursor: pointer;
+}
+.line{
+     height: 6px;
+    width: 100%;
+    margin: 8px auto;
+    background-color:#2E7031;
+}
